@@ -9,7 +9,7 @@ class App extends Component {
   state = {
     error: '',
     consulta: '',
-    resultado: ''
+    resultado: {}
   }
 
   componentDidMount() {
@@ -30,7 +30,7 @@ class App extends Component {
     if(!ciudad || !pais) return null;
 
     const appId = '52cccc184676ea334692437a9537a50b';
-    let url = `http://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${appId}`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${appId}`;
     fetch(url)
       .then(res => res.json())
       .then(datos => {
